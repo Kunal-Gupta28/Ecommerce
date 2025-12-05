@@ -8,7 +8,7 @@ export default function ProductSection({ title, items }) {
         <button className="text-sm text-red-700 font-medium">View All →</button>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {items.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
