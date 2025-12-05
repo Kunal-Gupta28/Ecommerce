@@ -1,67 +1,61 @@
-import { Link, useLocation } from "react-router-dom";
-import { useCart } from "../context/CartContext";
-import { useTheme } from "../context/ThemeContext";
+import { Phone, Mail, Menu } from "lucide-react";
 
 export default function Navbar() {
-  const { cart } = useCart();
-  const { theme, toggleTheme } = useTheme();
-  const location = useLocation();
-
   return (
-    <header className="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50">
-      <nav className="max-w-6xl mx-auto flex justify-between items-center p-4">
-        <Link
-          to="/"
-          className="text-3xl font-extrabold text-blue-600 dark:text-blue-400"
-        >
-          ShopEase
-        </Link>
+    <header className="w-full shadow-md bg-white">
+      {/* --- Top Bar --- */}
+      <div className="max-w-7xl mx-auto border-b py-2 px-4 flex items-center justify-between text-sm">
+        <div className="flex items-center gap-2 font-semibold text-gray-800">
+          <img
+            src="/logo.png"
+            alt="Medono India"
+            className="h-8 w-auto object-contain"
+          />
+          <div>
+            <p className="font-bold text-gray-900">Medono India</p>
+            <p className="text-xs text-gray-600">
+              📍 Alipur, New Delhi, Delhi
+            </p>
+            <span className="text-xs font-medium text-red-600">
+              GST No.: 07GSVPK9534A1Z7
+            </span>
+          </div>
+        </div>
 
-        <div className="flex gap-4 items-center font-medium">
-          <NavLink to="/" current={location.pathname === "/"}>
-            Home
-          </NavLink>
-          <NavLink to="/login" current={location.pathname === "/login"}>
-            Login
-          </NavLink>
-          <NavLink to="/register" current={location.pathname === "/register"}>
-            Register
-          </NavLink>
+        <div className="flex gap-2">
+          <button className="flex items-center gap-2 bg-red-600 text-white text-sm px-4 py-2 rounded-md font-semibold shadow-md">
+            <Phone size={18} /> Call 08047304758
+          </button>
 
-          <Link
-            to="/cart"
-            className="relative hover:text-blue-600 dark:text-gray-100 dark:hover:text-blue-400 transition text-xl"
-          >
-            🛒
-            {cart.length > 0 && (
-              <span className="absolute -top-2 -right-3 bg-red-600 text-white text-xs px-[7px] py-px rounded-full">
-                {cart.length}
-              </span>
-            )}
-          </Link>
+          <button className="flex items-center gap-2 bg-red-600 text-white text-sm px-4 py-2 rounded-md font-semibold shadow-md">
+            <Mail size={18} /> Send Email
+          </button>
+        </div>
+      </div>
 
-          <button
-            className="ml-2 text-xl hover:scale-110 transition"
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-          >
-            {theme === "light" ? "🌙" : "☀️"}
+      {/* --- Bottom Menu Bar --- */}
+      <nav className="w-full flex items-center justify-between px-6 py-3 bg-gray-800 text-white">
+        <div className="max-w-7xl flex items-center gap-6 font-semibold">
+          <button className="flex items-center gap-2 hover:text-red-400 transition">
+            <Menu size={20} />
+            Our Products
+          </button>
+          <button className="hover:text-red-400 transition">Who We Are</button>
+          <button className="hover:text-red-400 transition">Contact Us</button>
+        </div>
+
+        {/* Search Box */}
+        <div className="flex items-center gap-0 bg-white rounded-md overflow-hidden">
+          <input
+            type="text"
+            placeholder="Search Products/Services"
+            className="px-4 py-2 text-gray-700 outline-none w-64"
+          />
+          <button className="bg-red-600 px-4 py-2 text-white font-medium">
+            Search
           </button>
         </div>
       </nav>
     </header>
-  );
-}
-
-function NavLink({ to, current, children }) {
-  return (
-    <Link
-      to={to}
-      className={`hover:text-blue-600 dark:hover:text-blue-400 transition ${
-        current ? "text-blue-600 dark:text-blue-400" : "text-gray-700 dark:text-gray-200"
-      }`}
-    >
-      {children}
-    </Link>
   );
 }

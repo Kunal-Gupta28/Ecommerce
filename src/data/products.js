@@ -1,34 +1,11 @@
-export const products = [
+export const sections = [
   {
-    id: 1,
-    name: "Wireless Headphones",
-    price: 2499,
-    category: "electronics",
-    description: "Comfortable over-ear wireless headphones with noise cancellation.",
-    img: "https://via.placeholder.com/400x300?text=Headphones",
-  },
-  {
-    id: 2,
-    name: "Smart Watch",
-    price: 3999,
-    category: "electronics",
-    description: "Track your fitness, notifications, and more with this smart watch.",
-    img: "https://via.placeholder.com/400x300?text=Smart+Watch",
-  },
-  {
-    id: 3,
-    name: "Running Shoes",
-    price: 1999,
-    category: "fashion",
-    description: "Lightweight and comfortable shoes perfect for running and walking.",
-    img: "https://via.placeholder.com/400x300?text=Running+Shoes",
-  },
-  {
-    id: 4,
-    name: "Office Chair",
-    price: 5499,
-    category: "home",
-    description: "Ergonomic office chair with lumbar support and adjustable height.",
-    img: "https://via.placeholder.com/400x300?text=Office+Chair",
-  },
+    title: "Health And Personal Care",
+    items: [
+      { id: 1, name: "Dr Pen Ultima A6", price: "3500", image: "/p1.png" },
+      { id: 2, name: "Plastic Pill Box", price: "65", image: "/p2.png" },
+      { id: 3, name: "Digital BP Machine", price: "850", image: "/p3.png" },
+      { id: 4, name: "Kids Nebulizer", price: "150", image: "/p4.png" }
+    ]
+  }
 ];
