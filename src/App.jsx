@@ -1,31 +1,24 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
-import CategoryStrip from "./components/CategoryStrip";
-import ProductSection from "./components/ProductSection";
-// import Welcome from "./components/Welcome";
-// import VideosSection from "./components/VideosSection";
-import RatingsSection from "./components/RatingsSection";
 import Footer from "./components/Footer";
 
-import { sections } from "./data/products";
+import HomePage from "./pages/HomePage";
+import SearchResults from "./components/SearchResults";
 
-export default function App() {
+function App() {
   return (
-    <div className="bg-[#f5f5f5]">
+    <BrowserRouter>
       <Navbar />
-      <CategoryStrip />
 
-      <div className="max-w-7xl mx-auto mt-5 space-y-12">
-        {/* <Welcome /> */}
-
-        {sections.map((sec) => (
-          <ProductSection key={sec.title} {...sec} />
-        ))}
-
-        {/* <VideosSection /> */}
-        <RatingsSection />
-      </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/search" element={<SearchResults />} />
+      </Routes>
 
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
+
+export default App;

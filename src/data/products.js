@@ -1,4 +1,4 @@
-export const sections = [
+export const products = [
   {
     title: "Health And Personal Care",
     items: [
