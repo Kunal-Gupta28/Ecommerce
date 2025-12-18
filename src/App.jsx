@@ -4,21 +4,65 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import HomePage from "./pages/HomePage";
-import SearchResults from "./components/SearchResults";
+import SearchResults from "./pages/SearchResults";
+import ProductDetails from "./pages/ProductDetails";
+import CategoryPage from "./pages/CategoryPage";
+import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import ProfilePage from "./pages/ProfilePage";
+import OrderSuccess from "./pages/OrderSuccess";
 
-function App() {
+import ProtectedRoute from "./components/ProtectedRoute";
+
+import { CartProvider } from "./context/CartContext";
+import { AuthProvider } from "./context/AuthContext";
+
+export default function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      <AuthProvider>
+        <CartProvider>
+          <Navbar />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/search" element={<SearchResults />} />
-      </Routes>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/search" element={<SearchResults />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/category/:name" element={<CategoryPage />} />
+            <Route path="/cart" element={<CartPage />} />
 
-      <Footer />
+            {/* 🔐 Protected Routes */}
+            <Route
+              path="/checkout"
+              element={
+                <ProtectedRoute>
+                  <CheckoutPage />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <ProfilePage />
+                </ProtectedRoute>
+              }
+            />
+
+            {/* Auth */}
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+
+            {/* Order Success */}
+            <Route path="/order-success" element={<OrderSuccess />} />
+          </Routes>
+
+          <Footer />
+        </CartProvider>
+      </AuthProvider>
     </BrowserRouter>
   );
 }
-
-export default App;
