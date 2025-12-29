@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { products } from "../data/products";
-import ProductCard from "../components/ProductCard";
-import QuoteForm from "../components/QuoteForm";
+import ProductCard from "../components/common/ProductCard";
+import QuoteForm from "../components/forms/QuoteForm";
 import { useCart } from "../context/CartContext";
 import { useEffect } from "react";
 

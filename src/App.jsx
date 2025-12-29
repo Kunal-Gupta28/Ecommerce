@@ -1,8 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+/* Common Components */
+import Navbar from "./components/common/Navbar";
+import Footer from "./components/common/Footer";
+import ProtectedRoute from "./components/common/ProtectedRoute";
 
+/* Pages */
 import HomePage from "./pages/HomePage";
 import SearchResults from "./pages/SearchResults";
 import ProductDetails from "./pages/ProductDetails";
@@ -14,8 +17,7 @@ import RegisterPage from "./pages/RegisterPage";
 import ProfilePage from "./pages/ProfilePage";
 import OrderSuccess from "./pages/OrderSuccess";
 
-import ProtectedRoute from "./components/ProtectedRoute";
-
+/* Context */
 import { CartProvider } from "./context/CartContext";
 import { AuthProvider } from "./context/AuthContext";
 
@@ -33,7 +35,7 @@ export default function App() {
             <Route path="/category/:name" element={<CategoryPage />} />
             <Route path="/cart" element={<CartPage />} />
 
-            {/* 🔐 Protected Routes */}
+            {/* Protected Routes */}
             <Route
               path="/checkout"
               element={

@@ -1,4 +1,4 @@
-import ProductCard from "./ProductCard";   // ✅ THIS LINE WAS MISSING
+import ProductCard from "../common/ProductCard";
 
 export default function ProductSection({ title, items }) {
   return (

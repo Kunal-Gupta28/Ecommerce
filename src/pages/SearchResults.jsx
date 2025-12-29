@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/common/ProductCard";
 import { getAllProducts } from "../utils/productUtils";
 
 export default function SearchResults() {

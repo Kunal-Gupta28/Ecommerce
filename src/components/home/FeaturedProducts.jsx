@@ -1,5 +1,5 @@
-import ProductCard from "./ProductCard";
-import { products } from "../data/products";
+import ProductCard from "../common/ProductCard";
+import { products } from "../../data/products";
 
 const FeaturedProducts = () => {
   // Flatten category-based products into a single array

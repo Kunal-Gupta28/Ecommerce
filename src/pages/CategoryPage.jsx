@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { products } from "../data/products";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/common/ProductCard";
 
 export default function CategoryPage() {
   const { name } = useParams();
